@@ -1,8 +1,8 @@
-import { auth } from "@shared/services/auth";
-import { FC } from "react";
+import { auth } from '@shared/services/auth';
+import { FC } from 'react';
 
-import { SignedInUserMenu } from "./signed-in-user-menu";
-import { SignedOutUserMenu } from "./signed-out-user-menu";
+import { SignedInUserMenu } from './signed-in-user-menu';
+import { SignedOutUserMenu } from './signed-out-user-menu';
 
 export const UserMenu: FC = async () => {
   const session = await auth();

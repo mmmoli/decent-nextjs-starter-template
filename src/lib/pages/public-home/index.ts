@@ -1,1 +1,1 @@
-export * from "./ui/public-home-page";
+export * from './ui/public-home-page';

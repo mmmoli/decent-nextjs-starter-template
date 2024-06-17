@@ -1,4 +1,4 @@
-import { LayoutPublic, metadata } from "@pages/layout-public";
+import { LayoutPublic, metadata } from '@pages/layout-public';
 
 export { metadata };
 

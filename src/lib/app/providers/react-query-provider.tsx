@@ -3,10 +3,10 @@ import {
   dehydrate,
   HydrationBoundary,
   QueryClient,
-} from "@tanstack/react-query";
-import { ReactNode } from "react";
+} from '@tanstack/react-query';
+import { ReactNode } from 'react';
 
-import { defaultTanStackQueryOptions } from "@/lib/config";
+import { defaultTanStackQueryOptions } from '@/lib/config';
 
 type Props = {
   children: ReactNode;
@@ -19,8 +19,7 @@ export default async function ReactQueryProvider({ children }: Props) {
       dehydrate: {
         // includes pending queries during dehydration
         shouldDehydrateQuery: (query) =>
-          defaultShouldDehydrateQuery(query) ||
-          query.state.status === "pending",
+          defaultShouldDehydrateQuery(query) || query.state.status === 'pending',
       },
     },
   });
@@ -31,9 +30,5 @@ export default async function ReactQueryProvider({ children }: Props) {
   //   queryFn: getStackItems,
   // });
 
-  return (
-    <HydrationBoundary state={dehydrate(queryClient)}>
-      {children}
-    </HydrationBoundary>
-  );
+  return <HydrationBoundary state={dehydrate(queryClient)}>{children}</HydrationBoundary>;
 }
