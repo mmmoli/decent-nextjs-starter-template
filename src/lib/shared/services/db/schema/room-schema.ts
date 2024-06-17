@@ -1,22 +1,22 @@
-import { sql } from "drizzle-orm";
-import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
-import { createInsertSchema, createSelectSchema } from "drizzle-zod";
-import { z } from "zod";
+import { sql } from 'drizzle-orm';
+import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
+import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
+import { z } from 'zod';
 
-import { users } from "./auth-schema";
+import { users } from './auth-schema';
 
-export const rooms = sqliteTable("room", {
-  id: text("id")
+export const rooms = sqliteTable('room', {
+  id: text('id')
     .primaryKey()
     .$defaultFn(() => crypto.randomUUID()),
-  name: text("name").notNull(),
-  slug: text("slug").notNull().unique(),
-  createdAt: integer("createdAt", { mode: "timestamp_ms" })
+  name: text('name').notNull(),
+  slug: text('slug').notNull().unique(),
+  createdAt: integer('createdAt', { mode: 'timestamp_ms' })
     .notNull()
     .default(sql`(unixepoch() * 1000)`),
-  ownerId: text("ownerId")
+  ownerId: text('ownerId')
     .notNull()
-    .references(() => users.id, { onDelete: "cascade" })
+    .references(() => users.id, { onDelete: 'cascade' })
     .notNull(),
 });
 

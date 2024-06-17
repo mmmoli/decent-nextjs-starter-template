@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/nextjs';
 
-import { env } from '@/env';
+import { env } from '@shared/config/env';
 
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 Sentry.init({

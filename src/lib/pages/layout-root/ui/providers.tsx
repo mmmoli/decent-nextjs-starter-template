@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { env } from "@shared/config/env";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { TooltipProvider } from "@ui/tooltip";
-import { SessionProvider } from "next-auth/react";
-import { FC,ReactNode, useState } from "react";
+import { env } from '@shared/config/env';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { TooltipProvider } from '@ui/tooltip';
+import { SessionProvider } from 'next-auth/react';
+import { FC, ReactNode, useState } from 'react';
 
-import { defaultTanStackQueryOptions } from "@/lib/config";
+import { defaultTanStackQueryOptions } from '@/lib/config';
 
 export interface ProvidersProps {
   children: ReactNode;
@@ -16,7 +16,7 @@ export interface ProvidersProps {
 export const Providers: FC<ProvidersProps> = ({ children }) => {
   // TanStack Query client for the client
   const [queryClient] = useState(
-    () => new QueryClient({ defaultOptions: defaultTanStackQueryOptions }),
+    () => new QueryClient({ defaultOptions: defaultTanStackQueryOptions })
   );
 
   return (
@@ -25,9 +25,7 @@ export const Providers: FC<ProvidersProps> = ({ children }) => {
         <TooltipProvider>
           {children}
 
-          {env.NEXT_PUBLIC_REACT_QUERY_DEVTOOLS && (
-            <ReactQueryDevtools initialIsOpen={false} />
-          )}
+          {env.NEXT_PUBLIC_REACT_QUERY_DEVTOOLS && <ReactQueryDevtools initialIsOpen={false} />}
         </TooltipProvider>
       </SessionProvider>
     </QueryClientProvider>

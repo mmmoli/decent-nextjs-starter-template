@@ -1,11 +1,10 @@
-import { assertUser } from "@shared/services/auth";
-import { Metadata } from "next";
-import { FC } from "react";
+import { assertUser } from '@shared/services/auth';
+import { Metadata } from 'next';
+import { FC } from 'react';
 
 export const metadata: Metadata = {
-  title: "Decent Next.js Starter Template",
-  description:
-    "Quickly start a new Next.js project with common tools and configurations.",
+  title: 'Decent Next.js Starter Template',
+  description: 'Quickly start a new Next.js project with common tools and configurations.',
 };
 
 export const PrivatePage: FC = async () => {

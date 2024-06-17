@@ -1,6 +1,4 @@
-
-export { auth } from "@shared/services/auth";
-
+import { auth } from '@shared/services/auth';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 

@@ -1,4 +1,4 @@
-import { LayoutRoot, metadata } from "@pages/layout-root";
+import { LayoutRoot, metadata } from '@pages/layout-root';
 
 export { metadata };
 

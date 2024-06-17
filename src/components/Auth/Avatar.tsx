@@ -1,8 +1,8 @@
-import { IconUser } from "@tabler/icons-react";
-import { Avatar as AvatarRoot,AvatarFallback, AvatarImage } from "@ui/avatar";
-import { User } from "next-auth";
+import { IconUser } from '@tabler/icons-react';
+import { Avatar as AvatarRoot, AvatarFallback, AvatarImage } from '@ui/avatar';
+import { User } from 'next-auth';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 type Props = {
   user: User;
@@ -12,11 +12,11 @@ type Props = {
 export default function Avatar({ user, className }: Props) {
   const initials = user?.name
     ? user?.name
-        .split(" ")
+        .split(' ')
         .map((n) => n[0].toUpperCase())
         .slice(0, 3)
-        .join("")
-    : "";
+        .join('')
+    : '';
 
   return (
     <AvatarRoot
