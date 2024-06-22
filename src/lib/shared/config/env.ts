@@ -1,3 +1,4 @@
+import { vercel } from '@t3-oss/env-core/presets';
 import { createEnv } from '@t3-oss/env-nextjs';
 import { boolean } from 'boolean';
 import { z } from 'zod';
@@ -22,6 +23,7 @@ export const env = createEnv({
     SENTRY_DSN: z.string().optional(),
     SENTRY_DEBUG: zParsedBoolean,
   },
+
   client: {
     NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: z.string().optional().default(''),
     NEXT_PUBLIC_REACT_QUERY_DEVTOOLS: zParsedBoolean,
@@ -38,4 +40,6 @@ export const env = createEnv({
     NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
     NEXT_PUBLIC_SENTRY_DEBUG: process.env.NEXT_PUBLIC_SENTRY_DEBUG,
   },
+
+  extends: [vercel()],
 });
